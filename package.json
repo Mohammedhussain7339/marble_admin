@@ -9,18 +9,35 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.1.6",
+    "@tanstack/react-virtual": "^3.13.16",
+    "@types/next-auth": "^3.13.0",
+    "@types/react-window": "^1.8.8",
+    "aws-amplify": "^6.15.5",
+    "country-state-city": "^3.2.1",
+    "gsap": "^3.14.2",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^4.0.0",
+    "lucide-react": "^0.562.0",
+    "next": "^16.1.6",
+    "next-sitemap": "^4.2.3",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
+    "react-window": "^2.2.4",
+    "redux-persist": "^6.0.0",
+    "sonner": "^2.0.3"
   },
   "devDependencies": {
+    "@reduxjs/toolkit": "^2.6.1",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
+    "@types/next-auth": "^3.13.0",
+    "@types/node": "20.19.27",
+    "@types/react": "19.2.7",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "eslint-config-next": "16.1.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "5.9.3"
   }
 }
