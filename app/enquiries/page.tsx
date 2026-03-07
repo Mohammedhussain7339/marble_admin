@@ -352,7 +352,7 @@ export default function AdminEnquiries() {
                             className="text-blue-600 hover:text-blue-900 mr-3 font-medium"
                             onClick={() =>
                               router.push(
-                                `/mladmin/enquiries/${enquiry.request_id}`,
+                                `/enquiries/${enquiry.request_id}`,
                               )
                             }>
                             View

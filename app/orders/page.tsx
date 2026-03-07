@@ -207,7 +207,7 @@ const filteredOrders = orders
               <td className="p-2 flex gap-3">
                 <button
                   onClick={() =>
-                    router.push(`/mladmin/orders/${order.order_id}`)
+                    router.push(`/orders/${order.order_id}`)
                   }
                   className="text-green-600 text-sm cursor-pointer"
                 >

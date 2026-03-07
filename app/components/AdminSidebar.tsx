@@ -10,11 +10,11 @@ import {
 import { usePathname } from "next/navigation";
 
 const menu = [
-  { name: "Dashboard", href: "/mladmin", icon: LayoutDashboard },
-  { name: "Products", href: "/mladmin/products", icon: Box },
-  { name: "Create Products", href: "/mladmin/addProduct", icon: PlusSquare },
-  { name: "Enquiries", href: "/mladmin/enquiries", icon: Mail },
-  { name: "Orders", href: "/mladmin/orders", icon: Mail },
+  { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "Products", href: "/products", icon: Box },
+  { name: "Create Products", href: "/addProduct", icon: PlusSquare },
+  { name: "Enquiries", href: "/enquiries", icon: Mail },
+  { name: "Orders", href: "/orders", icon: Mail },
 ];
 
 export default function AdminSidebar({ open, setOpen }: { open: boolean; setOpen: (value: boolean) => void }) {
