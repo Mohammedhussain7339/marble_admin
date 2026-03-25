@@ -41,8 +41,8 @@ export default function OrderDetailsPage() {
         <p><b>Order ID:</b> {order.order_id}</p>
         <p><b>User ID:</b> {order.user_id}</p>
         <p><b>Status:</b> {order.status}</p>
-        <p><b>Total Items:</b> {order.orders.length}</p>
-        <p><b>Total Amount:</b> ₹{order.amount} {console.log(order.amount)}</p>
+        <p><b>Total Items:</b> {order.ordered_items.length}</p>
+        <p><b>Total Amount:</b> ₹{order.payable_amount}</p>
         <p>
           <b>Order Date:</b>{" "}
           {new Date(order.created_at).toLocaleString()}
@@ -78,7 +78,7 @@ export default function OrderDetailsPage() {
       {/* PRODUCTS */}
       <h2 className="font-semibold mb-3">Products</h2>
 
-      {order.orders.map((item: any, i: number) => (
+      {order.ordered_items.map((item: any, i: number) => (
         <div
           key={i}
           className="flex gap-4 border-b py-3 last:border-none"
