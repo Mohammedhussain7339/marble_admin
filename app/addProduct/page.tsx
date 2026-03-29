@@ -20,6 +20,7 @@ const urlToFile = async (url: string): Promise<File> => {
 };
 const requiredFields = [
   "marble_name",
+  "meta_data",
   "marble_category",
   "marble_type",
   "description",
@@ -46,6 +47,7 @@ const MARBLE_CATEGORIES = [
 
 export type marbleProductType = {
   marble_name: string;
+  meta_data: string;
   marble_category: string[]; // ✅ changed
   marble_type: string;
   description: string;
@@ -81,6 +83,7 @@ export default function CreateProductPage() {
   const [imagesState, setImagesState] = useState<ImageState[]>([]);
   const [form, setForm] = useState<Partial<marbleProductType>>({
     marble_name: "",
+    meta_data: "",
     marble_category: [], // ✅ array
     origin: "",
     description: "",
@@ -275,6 +278,12 @@ export default function CreateProductPage() {
           label="Marble Name"
           name="marble_name"
           value={form.marble_name || ""}
+          onChange={handleChange}
+        />
+        <Input
+          label="Meta Data"
+          name="meta_data"
+          value={form.meta_data || ""}
           onChange={handleChange}
         />
         <div title="Category">

@@ -154,7 +154,6 @@ export default function AdminEnquiries() {
             </div>
           </div>
           <div className="bg-white rounded-xl shadow p-4">
-            <div className="text-sm text-gray-500">Contacted</div>
             <div className="text-2xl font-bold text-yellow-600 mt-1">
               {enquiries.filter((e) => e.status === "CONSULTATION").length}
             </div>
@@ -413,7 +412,6 @@ export default function AdminEnquiries() {
               className="w-full border rounded-lg px-3 py-2 mb-6">
               <option value="NEW">New</option>
               <option value="INREVIEW">In Review</option>
-              <option value="CONTACTED">Contacted</option>
               <option value="CONSULTATION">Consultation</option>
               <option value="DEVELOPMENT">Development</option>
               <option value="DELIVERED">Delivered</option>

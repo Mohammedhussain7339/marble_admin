@@ -39,6 +39,7 @@ export default function EditProductModal({
 }: EditProductModalProps) {
   const [form, setForm] = useState<Partial<FullProduct>>({
     ...product,
+    meta_data: product.meta_data || "",
     marble_category: Array.isArray(product.marble_category)
       ? product.marble_category
       : product.marble_category
@@ -169,7 +170,7 @@ export default function EditProductModal({
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -204,6 +205,7 @@ export default function EditProductModal({
           key_features: form.key_features || [],
           marble_images: form.marble_images || [],
           marble_name: form.marble_name || "",
+          meta_data: form.meta_data || "",
           marble_category: form.marble_category ?? [], // ✅ FIX
           marble_type: form.marble_type || "",
           origin: form.origin || "",
@@ -324,7 +326,31 @@ export default function EditProductModal({
                 required
               />
             </div>
+            <div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Meta Data (SEO)
+  </label>
 
+  <textarea
+    name="meta_data"
+    value={form.meta_data || ""}
+    onChange={handleChange as React.ChangeEventHandler<HTMLTextAreaElement>}
+    rows={2}
+    placeholder="Enter SEO meta data"
+    className={`w-full p-3 border rounded-lg text-sm focus:outline-none focus:ring-2 transition ${
+      form.meta_data
+        ? "border-gray-300 focus:ring-blue-500"
+        : "border-yellow-400 bg-yellow-50 focus:ring-yellow-500"
+    }`}
+  />
+
+  {/* Status */}
+  {!form.meta_data && (
+    <p className="text-xs text-yellow-600 mt-1">
+      ⚠ Meta data missing (important for SEO)
+    </p>
+  )}
+</div>
             <div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">

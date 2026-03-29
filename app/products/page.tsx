@@ -11,6 +11,7 @@ export type FullProduct = {
   marble_size: { width: number; height: number; depth: number; };
   product_id: string;
   marble_name: string;
+  meta_data: string;
   marble_category: string[];
   marble_type: string;
   origin: string;
@@ -174,8 +175,7 @@ const toggleReady = async (product: FullProduct) => {
 
 <ProductTable
   products={products}
-    totalCount={totalCount}   // ✅ ADD THIS
-
+  totalCount={totalCount}   // ✅ ADD THIS
   onEdit={handleEdit}
   onDelete={handleDelete}
   onLoadMore={() => fetchProducts()}
