@@ -41,7 +41,7 @@ type ReferenceProduct = {
 export default function RequestDetailsPage() {
   const API_URL =
     "https://r80r8aguf1.execute-api.ap-south-1.amazonaws.com/default/Customize_marble_our";
-  
+
   const params = useParams();
   const { id: requestId } = params as { id: string };
 
@@ -67,12 +67,11 @@ export default function RequestDetailsPage() {
     })
       .then((res) => res.json())
       .then((data) => {
-        const req = data?.body?.items ?? data?.items ?? null;
+        const req = data?.item || data?.body?.item || null;
         setRequest(req);
         setProduct(req ? req.product_details : null);
         console.log("Fetched request data:", req);
-                // setReferenceProduct(d.refrence_product || null);
-
+        // setReferenceProduct(d.refrence_product || null);
       })
       .catch((err) => {
         console.error("Fetch error:", err);
@@ -85,8 +84,7 @@ export default function RequestDetailsPage() {
   if (loading) return <Loading />;
   if (!request) return <EmptyState />;
 
-  const S3_BASE_URL =
-    "https://YOUR_BUCKET_NAME.s3.ap-south-1.amazonaws.com/";
+  const S3_BASE_URL = "https://YOUR_BUCKET_NAME.s3.ap-south-1.amazonaws.com/";
 
   /* ================= UI ================= */
 
@@ -96,26 +94,37 @@ export default function RequestDetailsPage() {
 
       {/* REQUEST INFO */}
       <section className="border rounded p-4 bg-white space-y-2">
-        <p><b>Request ID:</b> {request.request_id}</p>
-        <p><b>User ID:</b> {request.user_id}</p>
-        <p><b>Product ID:</b> {request.product_id}</p>
-
-        <p><b>Stone Type:</b> {request.stone_type}</p>
-
         <p>
-          <b>Size:</b>{" "}
-          {request.size?.width ?? "-"} ×{" "}
-          {request.size?.height ?? "-"} ×{" "}
-          {request.size?.depth ?? "-"}
+          <b>Request ID:</b> {request.request_id}
+        </p>
+        <p>
+          <b>User ID:</b> {request.user_id}
+        </p>
+        <p>
+          <b>Product ID:</b> {request.product_id}
         </p>
 
-        <p><b>Additional Details:</b> {request.additional_details || "—"}</p>
-        <p><b>Connection Option:</b> {request.connection_option}</p>
-        <p><b>Status:</b> {request.status}</p>
+        <p>
+          <b>Stone Type:</b> {request.stone_type}
+        </p>
+
+        <p>
+          <b>Size:</b> {request.size?.width ?? "-"} ×{" "}
+          {request.size?.height ?? "-"} × {request.size?.depth ?? "-"}
+        </p>
+
+        <p>
+          <b>Additional Details:</b> {request.additional_details || "—"}
+        </p>
+        <p>
+          <b>Connection Option:</b> {request.connection_option}
+        </p>
+        <p>
+          <b>Status:</b> {request.status}
+        </p>
 
         <p className="text-sm text-gray-500">
-          Created on:{" "}
-          {new Date(request.created_at).toLocaleString("en-IN")}
+          Created on: {new Date(request.created_at).toLocaleString("en-IN")}
         </p>
       </section>
 
@@ -128,7 +137,7 @@ export default function RequestDetailsPage() {
             {request.reference_images.map((img, index) => (
               <img
                 key={index}
-                src={`${img.url}${img.key}`}
+                src={img.url}
                 alt="Reference"
                 className="w-full h-40 object-cover border rounded"
               />
@@ -158,8 +167,6 @@ function Loading() {
 
 function EmptyState() {
   return (
-    <div className="p-8 text-center text-gray-500">
-      No request data found.
-    </div>
+    <div className="p-8 text-center text-gray-500">No request data found.</div>
   );
 }

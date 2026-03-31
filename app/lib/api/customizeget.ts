@@ -4,6 +4,7 @@ export type EnquiryStatus =
   | "NEW"
   | "INREVIEW"
   | "CONSULTATION"
+  | "PAYMENT_VERIFICATION"
   | "DEVELOPMENT"
   | "DELIVERED";
 
@@ -113,7 +114,7 @@ export function getStatusCounts(enquiries: Enquiry[]) {
       acc[e.status] += 1;
       return acc;
     },
-    { NEW: 0, INREVIEW: 0, CONSULTATION: 0, DEVELOPMENT: 0, DELIVERED: 0 } as Record<EnquiryStatus, number>
+    { NEW: 0, INREVIEW: 0, CONSULTATION: 0, PAYMENT_VERIFICATION: 0, DEVELOPMENT: 0, DELIVERED: 0 } as Record<EnquiryStatus, number>
   );
 }
 

@@ -75,6 +75,7 @@ export default function AdminEnquiries() {
     NEW: "bg-blue-100 text-blue-800",
     INREVIEW: "bg-purple-100 text-purple-800",
     CONSULTATION: "bg-yellow-100 text-yellow-800",
+    PAYMENT_VERIFICATION: "bg-teal-100 text-teal-800",
     DEVELOPMENT: "bg-orange-100 text-orange-800",
     DELIVERED: "bg-green-100 text-green-800",
   };
@@ -159,6 +160,13 @@ export default function AdminEnquiries() {
             </div>
           </div>
           <div className="bg-white rounded-xl shadow p-4">
+            <div className="text-sm text-gray-500">Payment Verification</div>
+            <div className="text-2xl font-bold text-teal-600 mt-1">
+              {enquiries.filter((e) => e.status === "PAYMENT_VERIFICATION").length}
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl shadow p-4">
             <div className="text-sm text-gray-500">Closed</div>
             <div className="text-2xl font-bold text-green-600 mt-1">
               {enquiries.filter((e) => e.status === "DELIVERED").length}
@@ -186,6 +194,7 @@ export default function AdminEnquiries() {
               <option value="NEW">New</option>
               <option value="INREVIEW">In Review</option>
               <option value="CONSULTATION">Consultation</option>
+              <option value="PAYMENT_VERIFICATION">Payment Verification</option>
               <option value="DEVELOPMENT">Development</option>
               <option value="DELIVERED">Delivered</option>
             </select>
@@ -413,6 +422,7 @@ export default function AdminEnquiries() {
               <option value="NEW">New</option>
               <option value="INREVIEW">In Review</option>
               <option value="CONSULTATION">Consultation</option>
+              <option value="PAYMENT_VERIFICATION">Payment Verification</option>
               <option value="DEVELOPMENT">Development</option>
               <option value="DELIVERED">Delivered</option>
             </select>
