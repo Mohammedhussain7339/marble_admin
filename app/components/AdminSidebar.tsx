@@ -14,7 +14,9 @@ const menu = [
   { name: "Products", href: "/products", icon: Box },
   { name: "Create Products", href: "/addProduct", icon: PlusSquare },
   { name: "Enquiries", href: "/enquiries", icon: Mail },
+  { name: "ContactUs ", href: "/contactus", icon: Mail },
   { name: "Orders", href: "/orders", icon: Mail },
+  { name: "Banner", href: "/banner", icon: Mail },
 ];
 
 export default function AdminSidebar({ open, setOpen }: { open: boolean; setOpen: (value: boolean) => void }) {
